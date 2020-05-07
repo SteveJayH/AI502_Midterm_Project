@@ -1,6 +1,8 @@
 ## AI502_Midterm_Project
 python code and notebooks used for AI502 Midterm Project.
 
+## Images
+Figure 1: A conceptual figure of flat minimum and sharp minimum. 
 
 ## References
 
