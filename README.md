@@ -3,7 +3,10 @@ python code and notebooks used for AI502 Midterm Project.
 
 ## Images
 Figure 1: A conceptual figure of flat minimum and sharp minimum. 
-<center><img src="https://user-images.githubusercontent.com/31270778/81313075-586fd280-90c2-11ea-8e03-0c5a0429886d.jpg" align="center" width="70%" ></center>
+
+<p align="center">
+  <img width="460" height="300" src="http://www.fillmurray.com/460/300">
+</p>
 ## References
 
 #### Codes without specification on this References tab are coded by me.
