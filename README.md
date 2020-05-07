@@ -1,5 +1,5 @@
 ## AI502_Midterm_Project
-python code and notebooks used for AI502 Midterm Project.
+python code, notebooks and Images used for AI502 Midterm Project.
 
 ## Images
 
