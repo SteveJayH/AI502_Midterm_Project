@@ -59,16 +59,18 @@ def normalization_layer(x, is_training=True, channels_per_group=0,
     counts, channel_x, channel_x2, _ = sufficient_statistics(
         x, [2, 3], keep_dims=True)
     
-    channel_x /= counts
-    channel_x2 /= counts
+    channel_x /= counts  # Average
+    channel_x2 /= counts  # Avarage of square
 
     if is_training:
         # Add updates:
+        ''' At tensorflow code, not used in pytorch.
         x_update = moving_average_decay * moving_x + (1. - moving_average_decay) * \
                    torch.sum(channel_x, axis=[0], keepdims=True)
         x2_update = moving_average_decay * moving_x2 + (1. - moving_average_decay) * \
                     torch.sum(channel_x2, axis=[0], keepdims=True)
-        
+        '''
+
         # Group by example group and channel group.
         examples_per_group = min(examples_per_group, num_examples)
         # Assume that num_examples is always divisible by examples_per_group.
@@ -80,8 +82,8 @@ def normalization_layer(x, is_training=True, channels_per_group=0,
                     [example_groups, examples_per_group,
                      channel_groups, channels_per_group, 1, 1])
 
-        group_mean = torch.sum(channel_x, axis=[1, 3], keepdims=True)
-        group_x2 = torch.sum(channel_x2, axis=[1, 3], keepdims=True)
+        group_mean = torch.mean(channel_x, axis=[1, 3], keepdims=True)  # SJ
+        group_x2 = torch.mean(channel_x2, axis=[1, 3], keepdims=True)
         group_var = group_x2 - group_mean.pow(2)
 
         nc_mean = torch.reshape(
@@ -92,6 +94,7 @@ def normalization_layer(x, is_training=True, channels_per_group=0,
             [-1, channels, 1, 1])
 
         mult = gamma * torch.rsqrt(nc_var + eps)
+
         add = -nc_mean * mult + beta
         x = x * mult + add
     
@@ -136,12 +139,13 @@ def get_num_channel_groups(channels, channels_per_group=0, channel_groups=0):
     return (channel_groups, channels_per_group)
 
 def get_bn_regularizers(weight_decay=0.):
-    l2_crit = nn.MSELoss(reduction='sum')
+    l2_crit = nn.MSELoss()
     if weight_decay > 0:
         gamma_reg_baseline = 1.
         beta_regularizer = lambda tensor: weight_decay * l2_crit(tensor)
         gamma_regularizer = lambda tensor: weight_decay * l2_crit(
             tensor - gamma_reg_baseline)
+        raise NotImplementedError("didn't think about reduction of nn.MSELoss")
     else:
         beta_regularizer = None
         gamma_regularizer = None
