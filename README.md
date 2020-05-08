@@ -30,6 +30,10 @@ HW = RTX 2080Ti \
   <img width="100%" src=https://user-images.githubusercontent.com/31270778/81397201-d7681800-9161-11ea-8e71-789f2d6ff098.png>
 </p>
 
+Additional figure 2: Comparison for Batch normalization"s"
+
+Dataset = MNIST \
+
 
 ## References
 
