@@ -43,6 +43,9 @@ HW = RTX 2080Ti \
 
 #### Codes without specification on this References tab are coded by me.
 
+2. On the Variance of the Adaptive Learning Rate and Beyond \
+RAdam : https://github.com/LiyuanLucasLiu/RAdam
+
 3. MobileNetV2: Inverted residuals and linear bottlenecks \
 ResNet : https://pytorch.org/docs/stable/torchvision/models.html \
 MobileNetV2 : https://github.com/pytorch/vision/tree/master/torchvision/models
