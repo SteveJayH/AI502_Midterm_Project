@@ -17,6 +17,12 @@ Figure 4: Comparison of Adam, RAdam and SGD for MNIST classifier
   <img width="100%" src="https://user-images.githubusercontent.com/31270778/81313080-59086900-90c2-11ea-95b5-7737d41444a8.png">
 </p>
 
+Figure 5: Comparison for No Batch Norm and 4 kinds of Batch Norm
+
+<p align="center">
+  <img width="100%" src="https://user-images.githubusercontent.com/31270778/81408300-f2de1d80-9177-11ea-8ce9-ace7b99b13e4.png">
+</p>
+
 Additional figure 1: Comparison of Resnet50 & MobileNetV2
 
 Dataset = CIFAR100 \
@@ -29,11 +35,6 @@ HW = RTX 2080Ti \
 <p align="center">
   <img width="100%" src=https://user-images.githubusercontent.com/31270778/81397201-d7681800-9161-11ea-8e71-789f2d6ff098.png>
 </p>
-
-Additional figure 2: Comparison for Batch normalization"s"
-
-Dataset = MNIST \
-
 
 ## References
 
