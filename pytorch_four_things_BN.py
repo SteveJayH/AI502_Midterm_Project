@@ -82,7 +82,7 @@ def normalization_layer(x, is_training=True, channels_per_group=0,
                     [example_groups, examples_per_group,
                      channel_groups, channels_per_group, 1, 1])
 
-        group_mean = torch.mean(channel_x, axis=[1, 3], keepdims=True)  # SJ
+        group_mean = torch.mean(channel_x, axis=[1, 3], keepdims=True)  #.
         group_x2 = torch.mean(channel_x2, axis=[1, 3], keepdims=True)
         group_var = group_x2 - group_mean.pow(2)
 
@@ -104,8 +104,8 @@ def normalization_layer(x, is_training=True, channels_per_group=0,
                     [num_examples, channel_groups, channels_per_group, 1, 1])
         channel_x2 = torch.reshape(channel_x2,
                      [num_examples, channel_groups, channels_per_group, 1, 1])
-        group_x = torch.sum(channel_x, axis=[2], keepdims=True)
-        group_x2 = torch.sum(channel_x2, axis=[2], keepdims=True)
+        group_x = torch.mean(channel_x, axis=[2], keepdims=True)  #.
+        group_x2 = torch.mean(channel_x2, axis=[2], keepdims=True)
         moving_x_group = torch.sum(torch.reshape(moving_x,
                          [1, channel_groups, channels_per_group, 1, 1]), axis=[2], keepdims=True)
         moving_x2_group = torch.sum(torch.reshape(moving_x2,
@@ -123,6 +123,7 @@ def normalization_layer(x, is_training=True, channels_per_group=0,
                    norm_var.repeat([1, 1, channels_per_group, 1, 1]), [num_examples, channels, 1, 1])
         
         mult = gamma * torch.rsqrt(norm_var + eps)
+
         add = -norm_x * mult + beta
         x = x * mult + add
     return x
