@@ -17,6 +17,20 @@ Figure 4: Comparison of Adam, RAdam and SGD for MNIST classifier
   <img width="100%" src="https://user-images.githubusercontent.com/31270778/81313080-59086900-90c2-11ea-95b5-7737d41444a8.png">
 </p>
 
+Additional figure 1: Comparison of Resnet50 & MobileNetV2
+
+Dataset = CIFAR100 \
+Batch size = 4096 \
+lr = 5e-2 \
+num_epochs = 1000 \
+Optimizer = Adam \
+HW = RTX 2080Ti \
+
+<p align="center">
+  <img width="100%" src=https://user-images.githubusercontent.com/31270778/81397201-d7681800-9161-11ea-8e71-789f2d6ff098.png>
+</p>
+
+
 ## References
 
 #### Codes without specification on this References tab are coded by me.
