@@ -119,7 +119,7 @@ def normalization_layer(x, is_training=True, channels_per_group=0,
         norm_var = torch.reshape(
                    norm_var.repeat([1, 1, channels_per_group, 1, 1]), [num_examples, channels, 1, 1])
         
-        mult = gamma * tf.rsqrt(norm_var + eps)
+        mult = gamma * torch.rsqrt(norm_var + eps)
         add = -norm_x * mult + beta
         x = x * mult + add
     return x
