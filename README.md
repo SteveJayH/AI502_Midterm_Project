@@ -26,7 +26,7 @@ python code, notebooks and Images used for AI502 Midterm Project.
   <img width="100%" src="https://user-images.githubusercontent.com/31270778/81408300-f2de1d80-9177-11ea-8ce9-ace7b99b13e4.png">
 </p>
 
-Additional figure 1: Comparison of Resnet50 & MobileNetV2
+#### Additional figure 1: Comparison of Resnet50 & MobileNetV2
 
 Dataset = CIFAR100 \
 Batch size = 4096 \
